@@ -1,0 +1,25 @@
+@import './buttons';
+@import './tooltip';
+@import './buttons_icons';
+@import './controls';
+
+.form-horizontal {
+  display: flex;
+  width: 100%;
+
+  .form-group:not(:first-child) {
+    margin-left: 23px;
+  }
+}
+
+.form-horizontal > .form-horizontal-fields {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+  width: calc(100%  - 74px)
+}
+
+.form-horizontal > .form-horizontal-fields > .form-group {
+  flex: 1;
+}

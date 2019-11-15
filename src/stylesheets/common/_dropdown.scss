@@ -1,0 +1,27 @@
+.dropdown {
+  position: relative;
+  .content-component-wrapper {
+    z-index: 1000;
+    display: none;
+    position: absolute;
+  }
+
+  &.opened {
+    .content-component-wrapper {
+      display: block;
+    }
+  }
+
+  &.position-center {
+    .content-component-wrapper {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &.position-right {
+    .content-component-wrapper {
+      right: 0;
+    }
+  }
+}

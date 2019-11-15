@@ -1,0 +1,165 @@
+.avatar-user {
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 50%;
+
+  @include font-heading-section-sub(14px, $secondary-3);
+  text-align: center;
+  vertical-align: middle;
+  line-height: 40px;
+
+  .avatar-user-image {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 50%;
+  }
+
+  &.empty {
+    background-color: transparent;
+    .circle {
+      width: inherit;
+      height: inherit;
+    }
+    //border: 1px dashed $gray-darker;
+    .circle svg {
+      width: 100%;
+      height: 100%;
+
+      stroke-width: 2px;
+      stroke-dasharray: 5, 4;
+      fill: none;
+      stroke: $gray-darker;
+    }
+  }
+}
+
+.avatar-client {
+  display: flex;
+  flex-flow: row nowrap;
+
+  justify-content: flex-start;
+  align-items: center;
+  padding: 5px 0px 5px 10px;
+  min-height: 30px;
+  min-width: 225px;
+  border-radius: 12px;
+
+  .avatar-client-name {
+    @include font-supplier-name();
+    color: $secondary-3;
+  }
+
+  .icon-delete {
+    flex: 0 0 15px;
+
+    background: url('/images/icons/delete-charcoal.svg') no-repeat center
+      center;
+    width: 15px;
+    height: 15px;
+    background-size: contain;
+    margin: auto 10px auto auto;
+  }
+}
+
+.avatar-FM {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 0px 5px 10px;
+  min-height: 30px;
+  min-width: 225px;
+  border-radius: 12px;
+
+  .avatar-FM-name {
+    @include font-supplier-name();
+    color: $secondary-3;
+  }
+}
+.avatar-supplier {
+  display: flex;
+  flex-flow: row wrap;
+  transition: width 1s;
+
+  .avatar-supplier-card {
+    width: inherit;
+    display: flex;
+    flex-flow: row nowrap;
+    overflow: visible;
+
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px 0px 5px 10px;
+    min-height: 30px;
+
+    border-radius: 12px;
+
+    .avatar-supplier-name {
+      @include font-supplier-name();
+      color: $secondary-3;
+      white-space: nowrap;
+      overflow-x: hidden;
+
+      &.no-remove {
+        flex-grow: 99;
+      }
+    }
+  }
+
+  .icon-delete {
+    flex: 0 0 15px;
+
+    background: url('/images/icons/delete-charcoal.svg') no-repeat center
+      center;
+    width: 15px;
+    height: 15px;
+    background-size: contain;
+    margin: auto 10px auto auto;
+  }
+
+  .avatar-supplier-contacts {
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    margin-top: 10px;
+  }
+}
+
+.avatar-supplier-rating {
+  user-select: none;
+  position: relative;
+  flex: 0 0 36px;
+  .avatar-supplier-rating-circle {
+    position: absolute;
+    top: -18px;
+    left: 18px;
+    height: 36px;
+    width: 36px;
+    background-color: $secondary-6;
+    box-shadow: 0 0 5px 1px $black;
+    border-radius: 50%;
+
+    @include font-body-white(14px);
+    line-height: 36px;
+    text-align: center;
+
+    &.no-remove {
+      left: 0;
+    }
+
+    &.light-shadow {
+      box-shadow: 0 0 5px 1px $black;
+    }
+
+    &.no-shadow {
+      box-shadow: none;
+    }
+
+    &.subdued {
+      background-color: $primary-medium;
+    }
+  }
+}

@@ -1,0 +1,442 @@
+.facility-cards-wrapper {
+  margin-bottom: 15px;
+}
+
+.facility-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.facility-cards {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: stretch;
+
+  .facility-status-wrapper {
+    flex: 99 0 560px;
+    margin: 0;
+  }
+}
+
+.facility-card-header {
+  box-shadow: none !important;
+  flex: 1 0 278px;
+  padding: 0;
+  min-width: 278px;
+  min-height: 120px;
+
+  border-radius: 5px;
+  border: 0.5px solid $gray-blue;
+  margin: 4px;
+}
+
+.facility-card-horizontal {
+  box-shadow: none !important;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  border: 0.5px solid #cfd8dc;
+  margin: 4px;
+  background: #ffffff;
+
+  flex: 2 0 auto;
+  padding: 0;
+  min-width: 380px;
+  max-height: 120px;
+}
+
+.facility-card-standard {
+  display: flex;
+  flex-direction: column;
+  min-width: 260px;
+  min-height: 250px;
+}
+
+.facility-card-details {
+  display: flex;
+  flex-direction: column;
+  min-width: 260px;
+  min-height: 250px;
+}
+
+.facility-card-image-background {
+  flex: 1;
+  background-repeat: no-repeat;
+  background-size: cover;
+  // background-color: $gray-slate-light;
+  width: 100%;
+  height: 100%;
+}
+
+.facility-card-image-header-background {
+  height: 100%;
+}
+
+.facility-card-image-standard-background {
+  flex: none;
+  height: 140px;
+}
+
+.facility-card-image-details-background {
+  flex: none;
+  height: 120px;
+  width: 100%;
+}
+
+.facility-card-image-horizontal-background {
+  height: 120px;
+  width: 100%;
+}
+
+.facility-card-content {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+
+  .facility-card-header-name {
+    @include font-heading-white();
+    margin: 5px 0;
+  }
+
+  .facility-card-header-address {
+    @include font-heading-sub-white();
+    font-weight: 300;
+  }
+
+  .facility-card-horizontal-name {
+    @include font-heading-white();
+    color: $black;
+    margin: 5px 0;
+  }
+
+  .facility-card-horizontal-address {
+    @include font-heading-sub-white();
+    color: $black;
+    font-weight: 300;
+  }
+
+  .facility-card-standard-name {
+    margin: 5px 0;
+  }
+
+  .facility-card-standard-address {
+    font-weight: 300;
+  }
+}
+
+.facility-card-content-details {
+  border-top: 1px solid $gray-lighter;
+  flex: 1;
+  width: 100%;
+}
+
+.facility-card-header-content {
+  background: rgba($main, 0.8);
+}
+
+@media only screen and (max-width: 873px) {
+  .facility-cards {
+    .facility-status-wrapper {
+      flex: 99 0 264px;
+    }
+  }
+}
+
+// DocThumbCard
+
+.docthumb-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 264px;
+  height: 250px;
+
+  .docthumb-card-image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: $gray-slate-light;
+    width: 100%;
+    height: 100%;
+  }
+
+  .docthumb-card-content {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    .docthumb-card-icon {
+      flex: 0 0 20px;
+      margin-right: 10px;
+      width: 20px;
+      height: 20px;
+    }
+  
+    .docthumb-card-text {
+
+    }
+  }
+}
+
+// RequestCard
+
+.request-card {
+  // width: 264px;
+  margin-bottom: 15px;
+
+  .request-card-content {
+    padding: 10px;
+
+    .request-card-row-one {
+      height: 25px;
+      max-height: 25px;
+
+      border-bottom: 1px solid $gray-lighter;
+
+      .request-card-name {
+        @include font-internal-menu();
+      }
+    }
+    .request-card-row-two {
+      height: 30px;
+      max-height: 30px;
+
+      border-bottom: 1px solid $gray-lighter;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .request-card-datetime-wrapper {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex: 2;
+
+        .request-card-date-wrapper {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+
+          flex: 1;
+          .request-card-date-icon {
+            background: url('/images/icons/card-calendar.svg') no-repeat center
+              center;
+            width: 16px;
+            height: 16px;
+            margin: 2px;
+          }
+
+          .request-card-date-text {
+          }
+        }
+        .request-card-time-wrapper {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+
+          flex: 1;
+
+          .request-card-time-icon {
+            background: url('/images/icons/card-calendar.svg') no-repeat center
+              center;
+            width: 16px;
+            height: 16px;
+            margin: 2px;
+          }
+          .request-card-time-text {
+          }
+        }
+      }
+      .request-card-priority-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        flex: 1;
+
+        .request-card-priority-button {
+          @include font-table-column-data();
+          background: $secondary-6;
+          color: $white;
+          border-radius: 12px;
+
+          padding-top: 2px;
+          padding-bottom: 2px;
+          padding-left: 6px;
+          padding-right: 6px;
+        }
+      }
+    }
+    .request-card-row-three {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      padding-top: 5px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid $gray-lighter;
+      margin-bottom: 10px;
+
+      .request-card-description {
+        height: 37px;
+        line-height: 18px;
+      }
+    }
+    .request-card-row-four {
+      .request-card-facility-name {
+        margin-bottom: 5px;
+      }
+      .request-card-facility-area {
+        margin-bottom: 10px;
+      }
+      .request-card-supplier-wrapper {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        .request-card-supplier-button {
+          @include font-table-column-data();
+          background: $frequency-tint-green-light;
+          color: $white;
+          border-radius: 12px;
+
+          padding-top: 2px;
+          padding-bottom: 2px;
+          padding-left: 6px;
+          padding-right: 6px;
+        }
+      }
+    }
+  }
+}
+
+// SupplierCard
+
+.supplier-card {
+  display: flex;
+  flex-flow: row nowrap;
+  border-radius: 3px;
+
+  a {
+    color: $black
+  }
+
+  .supplier-rating-wrapper {
+    flex: 0 0 0px;
+
+    .avatar-supplier-rating {
+      flex: none;
+
+      .avatar-supplier-rating-circle {
+        top: 10px;
+        left: calc(-10px - 36px);
+      }
+    }
+  }
+
+  .supplier-left-colour {
+    flex: 0 0 5px;
+    min-height: 110px;
+    min-width: 5px;
+  }
+
+  .supplier-card-content {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+    flex: 99 0;
+
+    .supplier-card-row-one {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+
+      margin-bottom: auto;
+
+      .supplier-name {
+        width: 80%;
+        margin: 10px 0px 0px 5px;
+        @include font-heading-section();
+      }
+    }
+
+    .supplier-card-row-two {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 10px;
+
+      .supplier-email-icon {
+        background: url('/images/icons/envelope.svg') no-repeat center center;
+        width: 16px;
+        height: 16px;
+        margin: 2px;
+        margin-right: 14px;
+      }
+      .supplier-email-text {
+        @include font-body-text(14px);
+      }
+    }
+
+    .supplier-card-row-three {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 7px;
+
+      .supplier-phone-icon {
+        background: url('/images/icons/phone.svg') no-repeat center center;
+        width: 16px;
+        height: 16px;
+        margin: 2px;
+        margin-right: 14px;
+      }
+      .supplier-phone-text {
+        @include font-body-text(14px);
+      }
+    }
+  }
+}
+
+// SupplierCard
+
+.user-card {
+  display: flex;
+  max-height: 80px;
+  flex-flow: row nowrap;
+  border-radius: 3px;
+
+  .user-left-colour {
+    flex: 0 0 5px;
+    min-height: 80px;
+    min-width: 5px;
+  }
+  .user-card-content {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    flex: 99 0;
+
+    .user-card-row-one {
+      .user-name {
+        @include font-heading-section();
+      }
+    }
+
+    .user-card-row-two {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      .user-email-icon {
+        background: url('/images/icons/envelope.svg') no-repeat center center;
+        width: 16px;
+        height: 16px;
+        margin: 2px;
+        margin-right: 14px;
+      }
+      .user-email-text {
+      }
+    }
+  }
+}

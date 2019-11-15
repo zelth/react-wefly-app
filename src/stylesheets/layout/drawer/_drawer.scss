@@ -1,0 +1,110 @@
+.drawer-wrapper {
+  width: 200px;
+  transition: width 150ms ease-in-out;
+
+  .drawer-content {
+    height: 100%;
+    background: $gray-light;
+    box-shadow: none;
+    border-right: 1px solid $gray-light-blue;
+
+    .drawer-top {
+      height: $header-height;
+      overflow: hidden;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+
+      .logo {
+        background: url('/images/common/logo-blue-small.png') no-repeat center
+          center;
+        height: 28px;
+        width: 110px;
+        margin: 16px 0px 16px 22px;
+        background-size: contain;
+      }
+
+      .drawer-close-btn {
+        cursor: pointer;
+        height: $header-height;
+        width: 40px;
+        background: url('/images/icons/drawer-close.png') no-repeat center
+          center;
+      }
+    }
+  }
+
+  .drawer-menu-wrapper {
+    margin-bottom: 20px;
+    .drawer-menu {
+      .drawer-menu-item-wrapper {
+        border-top: 1px solid $gray-light-blue;
+
+        &:last-child {
+          border-bottom: 1px solid $gray-light-blue;
+        }
+
+        .drawer-menu-item {
+          outline: 0;
+          min-height: 45px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          &:hover {
+            background: $gray-light-blue;
+          }
+
+          .icon {
+            width: 90px;
+            height: 18px;
+          }
+
+          .label {
+            font-size: 13px;
+            width: 100%;
+            flex-grow: 1;
+            flex-shrink: 1;
+            color: fade-out($main, 0.2);
+            padding-top: 2px;
+            white-space: nowrap;
+
+            &.highlight {
+              color: fade-out($secondary-6, 0.2); 
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // closed style
+  &.closed {
+    width: 50px;
+    .drawer-content {
+      .drawer-top {
+        .logo {
+          display: none;
+        }
+
+        .drawer-close-btn {
+          width: 100%;
+          background: url('/images/icons/hamburger-blue.svg') no-repeat
+            center center;
+        }
+      }
+    }
+
+    .drawer-menu-wrapper {
+      .drawer-menu {
+        .drawer-menu-item-wrapper {
+          .drawer-menu-item {
+            .label {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

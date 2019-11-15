@@ -1,0 +1,49 @@
+.radio-selector-wrapper {
+  .form-label {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 15px;
+  }
+
+  .items-wrapper {
+    .item {
+      background: none;
+      &:disabled {
+        cursor: not-allowed;
+        background: $gray-light;
+      }
+      border: 1px solid $main;
+      border-radius: 30px;
+      color: $main;
+      font-size: 14px;
+      font-weight: 300;
+      padding: 5px 20px;
+      margin-bottom: 10px;
+      line-height: 18px;
+      min-height: 30px;
+      transition: background 300ms ease-in-out;
+  
+      &:not(:last-child) {
+        margin-right: 10px;
+        
+      }
+  
+      &.active {
+        background: $main;
+        color: $white;
+        padding: 5px 8px 5px 9px;
+        &:disabled {
+          cursor: not-allowed;
+          background: $main-light;
+        }
+        border: 1px solid $main;
+
+        .close-icon {
+          margin-left: 8px;
+          width: 15px;
+          height: 16px;
+        }
+      }
+    }
+  }
+}

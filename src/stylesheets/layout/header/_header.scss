@@ -1,0 +1,63 @@
+@import './add-dropdown';
+@import './user-dropdown';
+
+.layout-header {
+  background: $white;
+  height: $header-height;
+  box-shadow: 0px 2px 2px 0px fade-out($main, 0.9);
+  // removed to allow kanban to calculate correct widths
+  // position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  .divider {
+    width: 1px;
+    height: 30px;
+    margin: 5px 30px;
+    background: $gray-lighter-blue;
+  }
+
+  .search-wrapper {
+    margin-left: 10px;
+    position: relative;
+    height: 38px;
+    flex-grow: 1;
+
+    .search-icon {
+      position: absolute;
+      display: block;
+      background: url('/images/icons/search.png') no-repeat center center;
+      width: 21px;
+      height: 21px;
+      background-size: contain;
+      top: 0;
+      bottom: 0;
+      left: 10px;
+      margin: auto;
+    }
+    input {
+      height: 100%;
+      padding-left: 50px;
+      background: $gray-light;
+      box-shadow: none;
+      border-radius: $border-radius-main;
+      border: 0px solid;
+      font-size: 14px;
+      min-width: 300px;
+    }
+    ::-webkit-input-placeholder {
+      color: fade-out($main, 0.5);
+    }
+    ::-moz-placeholder {
+      color: fade-out($main, 0.5);
+    }
+    :-ms-input-placeholder {
+      color: fade-out($main, 0.5);
+    }
+    :-moz-placeholder {
+      color: fade-out($main, 0.5);
+    }
+  }
+}

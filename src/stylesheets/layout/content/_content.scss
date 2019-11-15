@@ -1,0 +1,16 @@
+.content-wrapper {
+  // removed to allow kanban to calculate correct fixed widths
+  // transform: translate(
+  //   0,
+  //   0
+  // ); // need this to make fixed header width: 100% work correctly https://stackoverflow.com/a/47775773
+  background: $background-blue;
+
+  .content {
+    width: 100%;
+    // height: calc(100% - $header-height);
+
+    // margin-top: $header-height;
+    padding: 50px 60px 0px 60px;
+  }
+}

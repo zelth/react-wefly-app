@@ -1,0 +1,37 @@
+.users-page {
+  .title {
+    @include font-heading-page(18px);
+    margin-bottom: 20px;
+  }
+
+  .users-list-filters {
+    margin-bottom: 20px;
+
+    .panel {
+      margin-top: 20px;
+    }
+
+    .filter-controls {
+      float: right;
+      display: inline-flex;
+      flex-flow: row nowrap;
+      justify-content: flex-end;
+    }
+  }
+
+  .users-grid {
+    flex: 1 1;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(264px, 1fr));
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+
+    .users-card {
+      max-height: 110px;
+      min-width: 264px;
+      margin-bottom: 10px;
+    }
+  }
+}
+

@@ -1,0 +1,70 @@
+@mixin iconButton() {
+  @include box-white-bordered();
+  display: block;
+  width: 100%;
+  padding: 15px 20px;
+  color: $main;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .button-icon-value {
+    text-align: left;
+    flex-grow: 1;
+  }
+
+  .icon {
+    background-size: contain;
+    align-self: flex-start;
+    margin-right: 16px;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 25px;
+  }
+}
+
+.button-icon-request {
+  @include iconButton();
+
+  .icon {
+    background: url('/images/icons/requests.svg') no-repeat center center;
+    width: 30px;
+    height: 30px;
+    margin: 2px;
+  }
+}
+
+.button-icon-document {
+  @include iconButton();
+
+  .icon {
+    background: url('/images/icons/documents.svg') no-repeat center center;
+    width: 30px;
+    height: 30px;
+    margin: 2px;
+  }
+}
+
+.button-icon-facility {
+  @include iconButton();
+
+  .icon {
+    background: url('/images/icons/facility.svg') no-repeat center center;
+    width: 30px;
+    height: 30px;
+    margin: 2px;
+  }
+}
+
+.button-icon-ppm {
+  @include iconButton();
+
+  .icon {
+    background: url('/images/icons/ppm.svg') no-repeat center center;
+    width: 30px;
+    height: 30px;
+    margin: 2px;
+  }
+}

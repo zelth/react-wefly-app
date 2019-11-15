@@ -1,0 +1,29 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  display: block;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+
+h3 {
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.form-heading {
+  font-size: 16px;
+  font-weight: 600;
+
+  color: $secondary-3;
+  border-bottom: 1px solid $border-color-primary;
+  padding-bottom: 15px;
+  margin-top: 10px;
+}

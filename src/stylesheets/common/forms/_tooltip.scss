@@ -1,0 +1,20 @@
+.tooltip-card {
+  border-radius: 4px;
+  border: 1px solid $gray-blue;
+  background: $gray-light;
+  padding: 19px 21px 82px 21px;
+  margin-left: 23px;
+  align-self: flex-start;
+  &.full {
+    width: 38%;
+  }
+  .tooltip-title {
+    line-height: 23px;
+    font-size: 14px;
+  }
+  .tooltip-content {
+    margin-top: 16px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+}

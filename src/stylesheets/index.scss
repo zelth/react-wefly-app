@@ -1,0 +1,192 @@
+@import './plugins/index';
+@import './reset';
+@import './variables';
+@import 'common/common';
+// @import 'auth/auth';
+@import 'layout/layout';
+@import 'users/users';
+@import 'admin/admin';
+
+
+html,
+body,
+#root,
+#root > div {
+  // min-height: 100vh;
+  font-family: Roboto, sans-serif;
+}
+
+.uploadcare--widget {
+  display: none !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.slider {
+  margin-top: -85px;
+  position: relative;
+  width: 100%;
+  height: 850px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.slider-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.slide {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+
+.arrow {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9f9f9;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform ease-in .1s;
+}
+
+.nextArrow {
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  z-index: 999;
+  color: #fff;
+}
+
+.backArrow {
+  position: absolute;
+  top: 50%;
+  left: 25px;
+  z-index: 999;
+  color: #fff;
+}
+
+.fa-arrow-right:before, .fa-arrow-left:before {
+  color: #222
+}
+
+.travel-form {
+  border-radius: 10px;
+  background: rgba(#EBEEF0, 0.9);
+  width: 316px;
+  padding: 20px;
+}
+
+.formContainer {
+  border-radius: 10px;
+  background: rgba(#EBEEF0, 0.9);
+  width: 316px;
+  height: 310px;
+  padding: 20px;
+}
+
+.slider-content {
+  position: absolute;
+  // display: flex;
+  width: 100%;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.slider-info {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 550px;
+}
+
+.slider-info-price {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.slider-left-content {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  h1 {
+    font-weight: 500;
+  }
+}
+
+.slider-right-content {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  h6 {
+    color: #35AFE4;
+    text-align: center;
+  };
+  p {
+    font-size: 10px;
+  };
+}
+
+.align-center {
+  text-align: center;
+}
+
+// Booking
+
+.MuiStepConnector-alternativeLabel, .MuiStepLabel-iconContainer > svg {
+  display: none;
+}
+
+// .MuiStepLabel-labelContainer > span {
+//   background-color: #35AFE4;
+//   color: #fff;
+//   padding: 20px 20px;
+//   border-radius: 20px;
+// }
+
+.MuiStepper-root {
+  padding: 0 !important;
+  background-color: #f2f2f2;
+}
+
+.MuiStepLabel-label.MuiStepLabel-alternativeLabel {
+  margin-top: 0 !important;
+}
+
+
+.MuiInput-root {
+  background-color: #fff;
+  border-radius: 5px;
+  // padding: 5px;
+  &::before {
+    display: none;
+  }
+}
+
+.MuiFilledInput-root {
+  background-color: #fff !important;
+  &::before {
+    display: none;
+  }
+}
+
+// .MuiInputBase-input {
+//   text-align: center;
+// }
+
+
+
+
+
+
+

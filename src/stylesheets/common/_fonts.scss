@@ -1,0 +1,231 @@
+@mixin font-body-text($size: 14px, $color: $black) {
+  font-family: $font-main;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $size;
+  color: $color;
+  line-height: $size + 5px;
+}
+
+.font-body-text {
+  @include font-body-text();
+}
+
+@mixin font-body-white($size: 14px) {
+  @include font-body-text($size, $white);
+}
+
+.font-body-white {
+  @include font-body-white();
+}
+
+@mixin font-field-active-text($size: 14px) {
+  font-family: $font-main;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $size;
+  color: $black;
+  line-height: $size + 4px;
+}
+
+.font-field-active-text {
+  @include font-field-active-text();
+}
+
+@mixin font-heading-white($size: 20px) {
+  font-family: $font-main;
+  font-size: $size;
+  font-style: normal;
+  font-weight: bold;
+  color: $white;
+  line-height: $size + 5px;
+}
+
+.font-heading-white {
+  @include font-heading-white();
+}
+
+@mixin font-label-input-field($size: 14px) {
+  font-family: $font-main;
+  font-size: $size;
+  font-style: normal;
+  font-weight: normal;
+  color: $gray-slate-light;
+  line-height: $size + 4px;
+}
+
+.font-label-input-field {
+  @include font-label-input-field();
+}
+
+@mixin font-label-input-field-12px($size: 12px) {
+  font-family: $font-main;
+  font-size: $size;
+  font-style: normal;
+  font-weight: normal;
+  color: $gray-slate-light;
+  line-height: $size + 5px;
+}
+
+.font-label-input-field-12px {
+  @include font-label-input-field-12px();
+}
+
+@mixin font-internal-menu($size: 14px, $color: $black) {
+  font-family: $font-main;
+  font-size: $size;
+  font-style: normal;
+  font-weight: bold;
+  color: $color;
+  line-height: $size + 1px;
+}
+
+.font-internal-menu {
+  @include font-internal-menu();
+}
+
+@mixin font-internal-menu-white($size: 14px) {
+  @include font-internal-menu($size, $white);
+}
+
+.font-internal-menu-white {
+  @include font-internal-menu-white();
+}
+
+@mixin font-heading-page($size: 20px) {
+  font-family: $font-main;
+  font-size: $size;
+  font-style: normal;
+  font-weight: bold;
+  color: $black;
+  line-height: $size + 5px;
+}
+
+.font-heading-page {
+  @include font-heading-page();
+}
+
+@mixin font-heading-section($size: 16px) {
+  font-family: $font-main;
+  font-style: normal;
+  font-weight: bold;
+  font-size: $size;
+  color: $black;
+  line-height: $size + 2px;
+}
+
+.font-heading-section {
+  @include font-heading-section();
+}
+
+@mixin font-heading-section-sub($size: 14px, $color: $black) {
+  font-family: $font-main;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $size;
+  color: $black;
+  line-height: $size + 2px;
+}
+
+.font-heading-section-sub {
+  @include font-heading-section-sub();
+}
+
+@mixin font-heading-sub($size: 16px, $color: $black) {
+  font-family: $font-main;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $size;
+  color: $color;
+  line-height: $size + 6px;
+}
+
+.font-heading-sub {
+  @include font-heading-sub();
+}
+
+@mixin font-heading-sub-white($size: 16px) {
+  @include font-heading-sub($size, $white);
+}
+
+.font-heading-sub-white {
+  @include font-heading-sub-white();
+}
+
+@mixin font-supplier-name($size: 14px) {
+  font-family: $font-main;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $size;
+  color: $black;
+  line-height: normal;
+}
+
+.font-supplier-name {
+  @include font-supplier-name();
+}
+
+@mixin font-table-column-header($size: 14px) {
+  font-family: $font-main;
+  font-style: bold;
+  font-weight: bold;
+  font-size: $size;
+  color: $black;
+  line-height: $size + 1px;
+}
+
+.font-table-column-header {
+  @include font-table-column-header();
+}
+
+@mixin font-table-column-data($size: 13px) {
+  font-family: $font-main;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $size;
+  color: $black;
+  line-height: 14px;
+}
+
+.font-table-column-data {
+  @include font-table-column-data();
+}
+
+@mixin font-text-link($size: 14px, $color: $font-link-blue) {
+  font-family: $font-main;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $size;
+  color: $color;
+  line-height: $size + 4px;
+
+  text-decoration: underline;
+
+  &:hover {
+  }
+}
+
+.font-text-link {
+  @include font-text-link();
+}
+
+@mixin font-text-link-lowkey($size: 14px) {
+  @include font-text-link($size, $gray-slate-light);
+}
+
+.font-text-link-lowkey {
+  @include font-text-link-lowkey();
+}
+
+@mixin font-date-lowkey($size: 12px) {
+  font-family: $font-main;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $size;
+  color: $gray-slate-light;
+  line-height: $size + 4px;
+}
+
+.font-date-lowkey {
+  @include font-date-lowkey();
+}

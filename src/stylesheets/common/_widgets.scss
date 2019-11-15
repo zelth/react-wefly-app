@@ -1,0 +1,132 @@
+.common-icon-count-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: $gray-lighter;
+  color: $white;
+
+  text-align: center;
+  line-height: 40px;
+  font-size: 100%;
+  font-weight: normal;
+
+  &.ok {
+    background-color: $ok;
+  }
+
+  &.danger {
+    background-color: $danger;
+  }
+}
+
+.common-icon-percentage-circle {
+  &.background {
+    stroke: $gray-lighter;
+  }
+
+  &.foreground {
+    stroke: $gray-lighter;
+
+    &.ok {
+      stroke: $ok;
+    }
+
+    &.danger {
+      stroke: $danger;
+    }
+  }
+}
+
+.data-cards {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin: -4px;
+}
+
+.data-card {
+  display: flex;
+  flex: 1 0 264px;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  height: 52px;
+  min-width: 264px;
+
+  border-radius: 5px;
+  border: 0.5px solid $gray-blue;
+  margin: 4px;
+
+  background: $white;
+
+  .data-card-label {
+    @include font-body-text();
+  }
+
+  .data-card-display {
+    margin: 10px;
+  }
+
+  .data-card-pin {
+    background: url('/images/icons/pin.svg') no-repeat center center;
+    background-size: contain;
+    align-self: flex-start;
+    width: 16px;
+    height: 16px;
+    margin: 5px;
+
+    &:hover {
+      background: url('/images/icons/pin-blue.svg') no-repeat center
+        center;
+    }
+  }
+}
+
+.data-card-large {
+  flex: 2 0 auto;
+  padding: 0;
+  min-width: 278px;
+  min-height: 120px;
+}
+
+@media only screen and (min-width: 1698px) {
+  .data-cards {
+    .data-card {
+      flex: 99 0 350px;
+    }
+
+    .data-card-large {
+      flex: 1 0 278px;
+      min-height: 120px;
+    }
+  }
+}
+
+@media only screen and (min-width: 2045px) {
+  .data-cards {
+    .data-card {
+      flex: 99 468px;
+    }
+
+    .data-card-large {
+      flex: 1 0 350px;
+      min-height: 120px;
+    }
+  }
+}
+
+@media only screen and (min-width: 2522px) {
+  .data-cards {
+    .data-card {
+      flex: 99 500px;
+    }
+
+    .data-card-large {
+      flex: 1 0 278px;
+      min-height: 120px;
+    }
+  }
+}

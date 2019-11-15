@@ -1,0 +1,11 @@
+.main-layout {
+  display: flex;
+
+  .drawer-wrapper {
+    flex-shrink: 0;
+  }
+
+  .content-wrapper {
+    flex-grow: 1;
+  }
+}

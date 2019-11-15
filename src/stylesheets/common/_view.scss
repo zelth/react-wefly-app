@@ -1,0 +1,19 @@
+.view-panel-container {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+  .view-panel-title {
+    flex: 1 0 25px;
+    margin-right: 5px;
+    @include font-body-text();
+  }
+
+  .view-panel-icons {
+    flex: 99 0 50px;
+    margin-right: 10px;
+    .view-panel-icon {
+      margin-right: 5px;
+    }
+  }
+}
