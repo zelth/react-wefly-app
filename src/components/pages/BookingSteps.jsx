@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import currencyFormatter from 'currency-formatter';
 import { makeStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -10,6 +11,8 @@ import DateFnsUtils from '@date-io/date-fns';
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
 import Input from '@material-ui/core/Input';
+import moment from 'moment';
+
 import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
@@ -253,25 +256,33 @@ function getSteps() {
   return ['ORDER', 'CUSTOMER INFO', 'PAYMENT'];
 }
 
-function getStepContent(stepIndex) {
-  switch (stepIndex) {
-    case 0:
-      return <OrderStep />;
-    case 1:
-      return <CustomerInfoStep />;
-    case 2:
-      return <PaymentStep />;
-    default:
-      return '';
-  }
-}
 
 
-function OrderStep() {
+
+function OrderStep({ bookingInfo, updateBookingInfo }) {
   const classes = useStyles();
-  const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
-  const handleDateChange = date => {
-    setSelectedDate(date);
+  const { startDate, endDate, routers, routerInsurance } = bookingInfo;
+  // const [routers, setRouters] = useState(1);
+  console.log('awa', routerInsurance);
+  const [pickup, setPickup] = useState(new Date());
+  const [arrival, setArrival] = useState(new Date());
+  const handleChange = (field, newValue) => {
+    switch (field) {
+      case 'startDate':
+        updateBookingInfo('startDate', newValue);
+        break;
+      case 'endDate':
+        updateBookingInfo('endDate', newValue);
+        break;
+      case 'routers':
+        updateBookingInfo('routers', newValue.target.value);
+        break;
+      case 'routerInsurance':
+        updateBookingInfo('routerInsurance', newValue);
+        break;
+      default:
+        break;
+    }
   };
 
   return (
@@ -282,11 +293,11 @@ function OrderStep() {
           <KeyboardDatePicker
             className={classes.textCenter}
             margin="normal"
-            id="date-picker-dialog"
+            id="date-picker-dialog-from-date"
             // label="Date picker dialog"
             format="MM/dd/yyyy"
-            value={selectedDate}
-            onChange={handleDateChange}
+            value={startDate}
+            onChange={value => handleChange('startDate', value)}
             KeyboardButtonProps={{
               'aria-label': 'change date',
             }}
@@ -296,8 +307,8 @@ function OrderStep() {
             margin="normal"
             id="date-picker-dialog"
             format="MM/dd/yyyy"
-            value={selectedDate}
-            onChange={handleDateChange}
+            value={endDate}
+            onChange={value => handleChange('endDate', value)}
             KeyboardButtonProps={{
               'aria-label': 'change date',
             }}
@@ -314,29 +325,51 @@ function OrderStep() {
               InputLabelProps={{
                 shrink: true,
               }}
+              value={routers}
+              onChange={value => handleChange('routers', value)}
             />
           </div>
           <div className={`${classes.itemInfo} ${classes.itemAlign}`}>
             <Typography component="p">Order Pickup</Typography>
-            <TextField
+            {/* <TextField
               id="standard-read-only-input"
               defaultValue="time?"
               margin="normal"
               InputProps={{
                 readOnly: true,
               }}
-            />
+            /> */}
+            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+              <KeyboardDatePicker
+                className={classes.textCenter}
+                margin="normal"
+                id="date-picker-dialog-from-date"
+                // label="Date picker dialog"
+                format="MM/dd/yyyy"
+                value={pickup}
+                onChange={selectedDate => setPickup(selectedDate)}
+                KeyboardButtonProps={{
+                  'aria-label': 'change date',
+                }}
+              />
+            </MuiPickersUtilsProvider>
           </div>
           <div className={`${classes.itemInfo} ${classes.itemAlign}`}>
             <Typography component="p">Order Return</Typography>
-            <TextField
-              id="standard-read-only-input"
-              defaultValue="time?"
-              margin="normal"
-              InputProps={{
-                readOnly: true,
-              }}
-            />
+            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+              <KeyboardDatePicker
+                className={classes.textCenter}
+                margin="normal"
+                id="date-picker-dialog-from-date"
+                // label="Date picker dialog"
+                format="MM/dd/yyyy"
+                value={arrival}
+                onChange={selectedDate => setArrival(selectedDate)}
+                KeyboardButtonProps={{
+                  'aria-label': 'change date',
+                }}
+              />
+            </MuiPickersUtilsProvider>
           </div>  
         </div>
         <div className={classes.insuranceContainer}>
@@ -344,10 +377,11 @@ function OrderStep() {
             <div className={classes.insuranceHeader}>
               <div className={classes.checkboxContainer}>
                 <Checkbox
-                  value="checkedC"
+                  value={routerInsurance}
                   inputProps={{
                     'aria-label': 'uncontrolled-checkbox',
                   }}
+                  onChange={value => handleChange('routerInsurance', value)}
                 />
               </div>
               <div className={classes.iHeaderContent}>
@@ -514,9 +548,23 @@ function PaymentStep() {
   );
 }
 
-export default function HorizontalLabelPositionBelowStepper() {
+export default function BookingSteps({ bookingParams }) {
   const classes = useStyles();
+  const { bookingFromDate, bookingToDate } = bookingParams;
   const [activeStep, setActiveStep] = React.useState(0);
+  const [startDate, setStartDate] = useState(moment(bookingFromDate).format('MMM-DD-YYYY'));
+  const [endDate, setEndDate] = useState(moment(bookingToDate).format('MMM-DD-YYYY'));
+  const [routers, setRouters] = useState(1);
+  const [pickupDate, setPickupDate] = useState(new Date());
+  const [returnDate, setReturnDate] = useState(new Date());
+  const [routerInsurance, setRouterInsurance] = useState(false);
+
+  // constant
+  const insuranceFee = 500;
+  const routerFee = 1750;
+  const depositFee = 1500;
+  const serviceFee = 75;
+  const valueAddedTax = 12;
   const steps = getSteps();
 
   const handleNext = () => {
@@ -529,6 +577,66 @@ export default function HorizontalLabelPositionBelowStepper() {
 
   const handleReset = () => {
     setActiveStep(0);
+  };
+
+  const updateBookingInfo = (field, value) => {
+    switch (field) {
+      case 'startDate':
+        setStartDate(moment(value).format('MMM-DD-YYYY'));
+        break;
+      case 'endDate':
+        setEndDate(moment(value).format('MMM-DD-YYYY'));
+        break;
+      case 'routers':
+        setRouters(value);
+        break;
+      case 'pickupDate':
+        setPickupDate(moment(value).format('MMM-DD-YYYY'));
+        break;
+      case 'returnDate':
+        setReturnDate(moment(value).format('MMM-DD-YYYY'));
+        break;
+      case 'routerInsurance':
+        setRouterInsurance(value.target && value.target.checked ? true : false);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const getStepContent = stepIndex => {
+    const bookingInfo = {
+      startDate,
+      endDate,
+      routers,
+      pickupDate,
+      returnDate,
+      routerInsurance
+    };
+
+    switch (stepIndex) {
+      case 0:
+        return <OrderStep bookingInfo={bookingInfo} updateBookingInfo={updateBookingInfo} />;
+      case 1:
+        return <CustomerInfoStep />;
+      case 2:
+        return <PaymentStep />;
+      default:
+        return null;
+    }
+  };
+
+  const getTotal = () => {
+    const routerCost = routers * routerFee;
+    // const vat
+    const vat = (routerCost + serviceFee) * (valueAddedTax / 100);
+    return (routerCost + serviceFee + vat);
+  };
+
+  const getVatAmount = () => {
+    const routerCost = routers * routerFee;
+    // const vat
+    return (routerCost + serviceFee) * (valueAddedTax / 100);
   };
 
   return (
@@ -591,28 +699,31 @@ export default function HorizontalLabelPositionBelowStepper() {
           </Typography>
           <div className={` ${classes.sumItemContent} ${classes.flexJcSb} ${classes.mb10} `}>
             <span>From:</span>
-            <span>2019-10-12</span>
+            <span>{startDate}</span>
             <span>to:</span>
-            <span>2019-10-19</span>
+            <span>{endDate}</span>
           </div>
           <div className={` ${classes.sumItemContent} ${classes.flexJcSb} `}>
             <span>Quantity:</span>
-            <span>x 1</span>
+            <span>x {routers}</span>
             <span>Rent:</span>
-            <span>P1750.00</span>
+            <span>{currencyFormatter.format((routerFee * routers), { symbol: '₱' })}</span>
           </div>
         </div>
-        <div className={classes.summaryInsurance}>
-          <Typography component="h4" className={classes.summaryTitle}>
-            Router Insurance 
-          </Typography>
-          <Typography component="p" className={`${classes.textCenter} ${classes.mb10}`}>
-            1 (for all routers in booking)
-          </Typography>
-          <Typography component="p" className={classes.textCenter}>
-            Insurance: P500.00 
-          </Typography>
-        </div>
+        {routerInsurance && (
+          <div className={classes.summaryInsurance}>
+            <Typography component="h4" className={classes.summaryTitle}>
+              Router Insurance 
+            </Typography>
+            <Typography component="p" className={`${classes.textCenter} ${classes.mb10}`}>
+              1 (for all routers in booking)
+            </Typography>
+            <Typography component="p" className={classes.textCenter}>
+              Insurance: {currencyFormatter.format(insuranceFee, { symbol: '₱' })}
+            </Typography>
+          </div>
+        )}
+        
         <div className={classes.summaryExtra}>
           <Typography component="h4" className={classes.summaryTitle}>
             Others
@@ -622,7 +733,7 @@ export default function HorizontalLabelPositionBelowStepper() {
               Deposit:
             </Typography>
             <span>
-              P1500.00
+              {currencyFormatter.format(depositFee, { symbol: '₱' })}
             </span>
           </div>
           <div className={`${classes.sumItemContent} ${classes.flexJcFe} ${classes.flexAiC} ${classes.mb10}`}>
@@ -630,16 +741,16 @@ export default function HorizontalLabelPositionBelowStepper() {
               Service Fee:
             </Typography>
             <span>
-              P75.00
+              {currencyFormatter.format(serviceFee, { symbol: '₱' })}
             </span>
           </div>
           <div
             className={`${classes.sumItemContent} ${classes.flexJcFe} ${classes.flexAiC} ${classes.sumItemContent} ${classes.flexJcFe}`}>
             <Typography component="h4" className={classes.mr20}>
-              Vat at 12%:
+              Vat at {valueAddedTax}%:
             </Typography>
             <span>
-              P459.00
+              {currencyFormatter.format(getVatAmount(), { symbol: '₱' })}
             </span>
           </div>
         </div>
@@ -648,7 +759,7 @@ export default function HorizontalLabelPositionBelowStepper() {
           whatever we are going to say. Thanks!
         </span>
         <Typography className={classes.summaryTotal}>
-          Total: P4284.00
+          Total: {currencyFormatter.format(getTotal(), { symbol: '₱' })}
         </Typography>
       </div>    
     </div>

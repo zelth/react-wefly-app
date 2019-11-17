@@ -61,20 +61,20 @@ const BootstrapInput = withStyles(theme => ({
 
 const TravelForm = () => {
   const history = useHistory();
-  const [destination, setDestination] = React.useState('Japan');
-  const [fromDate, setFromDate] = React.useState(new Date());
-  const [toDate, setToDate] = React.useState(new Date());
+  const [bookingDestination, setBookingDestination] = React.useState('Japan');
+  const [bookingFromDate, setBookingFromDate] = React.useState(new Date());
+  const [bookingToDate, setBookingToDate] = React.useState(new Date());
   const classes = useStyles();
   const handleChange = event => {
-    setDestination(event.target.value);
+    setBookingDestination(event.target.value);
   };
   const onSubmit = () => {
-    // console.log('props', props);
-    // get the data
-    // check if the date to is greater than the from date
-    // redirect to booking page and prefilled the input box
-    
-    history.push('/booking');
+    const formData = {
+      bookingDestination,
+      bookingFromDate,
+      bookingToDate,
+    };
+    history.push('/booking', formData);
   };
 
   return (
@@ -87,7 +87,7 @@ const TravelForm = () => {
         </Grid>
         <Grid item xs={12} md={12}>
           <Select
-            value={destination}
+            value={bookingDestination}
             onChange={handleChange}
             input={<BootstrapInput />}
             fullWidth
@@ -104,8 +104,8 @@ const TravelForm = () => {
                 margin="normal"
                 id="date-picker-dialog-from"
                 format="MM/dd/yyyy"
-                value={fromDate}
-                onChange={selectedDate => setFromDate(selectedDate)}
+                value={bookingFromDate}
+                onChange={selectedDate => setBookingFromDate(selectedDate)}
                 KeyboardButtonProps={{
                   'aria-label': 'change date',
                 }}
@@ -116,8 +116,8 @@ const TravelForm = () => {
                 margin="normal"
                 id="date-picker-dialog-to"
                 format="MM/dd/yyyy"
-                value={toDate}
-                onChange={selectedDate => setToDate(selectedDate)}
+                value={bookingToDate}
+                onChange={selectedDate => setBookingToDate(selectedDate)}
                 KeyboardButtonProps={{
                   'aria-label': 'change date',
                 }}
@@ -132,7 +132,7 @@ const TravelForm = () => {
           </Typography>
         </Grid>
         <Grid item xs={12} className="align-center">
-          <Button onClick={onSubmit} color="primary" variant="contained" className={classes.roundedBtn}>
+          <Button onClick={() => onSubmit()} color="primary" variant="contained" className={classes.roundedBtn}>
             Book Now!
           </Button>
         </Grid>

@@ -57,7 +57,7 @@ const Header = () => {
         <img src={LogoWhite} alt="Logo" className={classes.logo} />
       </Link>
       <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
-        YOUR GLOBAL TRAVEL WIFI. tae
+        YOUR GLOBAL TRAVEL WIFI.
       </Typography>
       <nav>
         <Link color="textPrimary" to="/pricing" className={classes.textBtn}>
