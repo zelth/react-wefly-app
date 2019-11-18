@@ -80,8 +80,20 @@ body,
 .travel-form {
   border-radius: 10px;
   background: rgba(#EBEEF0, 0.9);
-  width: 316px;
+  width: 29%;
   padding: 20px;
+  margin: 0 36px;
+}
+.dateContainer, .MuiInput-root {
+  &::before {
+    display: none;
+  }
+}
+
+.dateContainer, .MuiFormControl-root {
+  background-color: #fff;
+  width: 150px;
+  border-radius: 7px;
 }
 
 .formContainer {
@@ -116,7 +128,7 @@ body,
 }
 
 .slider-left-content {
-  width: 50%;
+  width: 31%;
   display: flex;
   justify-content: center;
   h1 {
@@ -126,8 +138,8 @@ body,
 
 .slider-right-content {
   display: flex;
-  justify-content: center;
-  width: 50%;
+  justify-content: flex-end;
+  width: 69%;
   h6 {
     color: #35AFE4;
     text-align: center;
@@ -161,16 +173,6 @@ body,
 
 .MuiStepLabel-label.MuiStepLabel-alternativeLabel {
   margin-top: 0 !important;
-}
-
-
-.MuiInput-root {
-  background-color: #fff;
-  border-radius: 5px;
-  // padding: 5px;
-  &::before {
-    display: none;
-  }
 }
 
 .MuiFilledInput-root {

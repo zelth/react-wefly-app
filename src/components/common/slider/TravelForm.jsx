@@ -7,6 +7,8 @@ import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputBase from '@material-ui/core/InputBase';
 import DateFnsUtils from '@date-io/date-fns';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
+import { Icon } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 
 import {
@@ -22,6 +24,33 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: '#35AFE4',
     margin: theme.spacing(1, 1.5),
   },
+  testing: {
+    marginBottom: 20,
+    '& svg': {
+      position: 'absolute',
+      left: 5,
+      color: '#35AFE4',
+    },
+  },
+  dateContainer: {
+    marginBottom: 20,
+    '& button': {
+      padding: 10,
+      position: 'absolute',
+      left: 0,
+    },
+    '& input':{
+      padding: '10px 10px 10px 40px',
+    },
+    '& svg': {
+      color: '#35AFE4',
+    }
+  },
+  dateSeparator: {
+    padding: '0 15px',
+    display: 'flex',
+    alignItems: 'center',
+  }
 }));
 
 const BootstrapInput = withStyles(theme => ({
@@ -31,12 +60,13 @@ const BootstrapInput = withStyles(theme => ({
     },
   },
   input: {
-    borderRadius: 4,
+    borderRadius: 10,
+    borderColor: '#fff',
     position: 'relative',
     backgroundColor: theme.palette.background.paper,
     border: '1px solid #ced4da',
     fontSize: 16,
-    padding: '10px 26px 10px 12px',
+    padding: '13px 31px 13px 31px',
     transition: theme.transitions.create(['border-color', 'box-shadow']),
     // Use the system font instead of the default Roboto font.
     fontFamily: [
@@ -85,44 +115,43 @@ const TravelForm = () => {
             Where are you travelling? 
           </Typography>
         </Grid>
-        <Grid item xs={12} md={12}>
+        <Grid item xs={12} md={12} className={classes.testing}>
           <Select
             value={bookingDestination}
             onChange={handleChange}
             input={<BootstrapInput />}
             fullWidth
+            IconComponent={() => (
+              <LocationOnIcon />
+            )}
           >
-            <MenuItem value="Japan">Japan</MenuItem>
-            <MenuItem value="Philippines">Philippines</MenuItem>
+            <MenuItem value="Japan">JAPAN</MenuItem>
+            <MenuItem value="Philippines">PHILIPPINES</MenuItem>
           </Select>
         </Grid>
-        <Grid container spacing={1} style={{ paddingRight: 10, paddingLeft: 10 }}>
+        <Grid container spacing={1} className={classes.dateContainer} style={{ paddingRight: 10, paddingLeft: 10 }}>
           <MuiPickersUtilsProvider utils={DateFnsUtils}>
-            <Grid item xs={6} md={6}>
-              <KeyboardDatePicker
-                className={classes.textCenter}
-                margin="normal"
-                id="date-picker-dialog-from"
-                format="MM/dd/yyyy"
-                value={bookingFromDate}
-                onChange={selectedDate => setBookingFromDate(selectedDate)}
-                KeyboardButtonProps={{
-                  'aria-label': 'change date',
-                }}
-              />
-            </Grid>
-            <Grid item xs={6} md={6}>
-              <KeyboardDatePicker
-                margin="normal"
-                id="date-picker-dialog-to"
-                format="MM/dd/yyyy"
-                value={bookingToDate}
-                onChange={selectedDate => setBookingToDate(selectedDate)}
-                KeyboardButtonProps={{
-                  'aria-label': 'change date',
-                }}
-              />
-            </Grid>
+            <KeyboardDatePicker
+              className={`${classes.textCenter} ${classes.fromDate}`}
+              id="date-picker-dialog-from"
+              format="MM/dd/yyyy"
+              value={bookingFromDate}
+              onChange={selectedDate => setBookingFromDate(selectedDate)}
+              KeyboardButtonProps={{
+                'aria-label': 'change date',
+              }}
+            />
+            <span className={classes.dateSeparator}>to</span>
+            <KeyboardDatePicker
+              className={`${classes.textCenter} ${classes.toDate}`}
+              id="date-picker-dialog-to"
+              format="MM/dd/yyyy"
+              value={bookingToDate}
+              onChange={selectedDate => setBookingToDate(selectedDate)}
+              KeyboardButtonProps={{
+                'aria-label': 'change date',
+              }}
+            />
           </MuiPickersUtilsProvider>
         </Grid>
         <Grid item xs={12} md={12}>
