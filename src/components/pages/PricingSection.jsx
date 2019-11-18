@@ -6,8 +6,8 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { useHistory } from 'react-router-dom';
 
-const useStyles = makeStyles(() => ({
-  root: {
+const useStyles = makeStyles(theme => ({
+  pricingSection: {
     position: 'relative',
     width: '100%',
     marginTop: '1.1%',
@@ -22,6 +22,11 @@ const useStyles = makeStyles(() => ({
     position: 'absolute',
     bottom: '25%',
     left: '5%',
+    [theme.breakpoints.up('md')]: {
+      position: 'absolute',
+      bottom: '13%',
+      left: '5%',
+    },
     '& h6': {
       color: '#35AFE4',
     }
@@ -32,6 +37,20 @@ const useStyles = makeStyles(() => ({
     borderRadius: '25px',
     backgroundColor: '#35AFE4',
   },
+  inputContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    marginTop: 15,
+    '& input': {
+      backgroundColor: '#f2f3f5',
+      padding: '10px 20px',
+      borderRadius: 10,
+    },
+    '& button': {
+      marginLeft: '-15%',
+      padding: '10px 40px',
+    }
+  }
 }));
 
 const PricingSection = () => {
@@ -44,7 +63,7 @@ const PricingSection = () => {
   };
 
   return (
-    <div className={classes.root}>
+    <div className={classes.pricingSection}>
       <div className={classes.imgContainer}>
         <img src={CloudImage} alt="cloud" />
       </div>

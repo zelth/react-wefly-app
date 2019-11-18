@@ -9,7 +9,7 @@ import { makeStyles } from '@material-ui/core';
 
 import PersonImage from 'assets/img/elem_1.png';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
   mainService: {
     display: 'flex',
     width: '100%',
@@ -19,6 +19,9 @@ const useStyles = makeStyles(() => ({
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'right center',
     height: '125vh',
+    [theme.breakpoints.up('md')]: {
+      height: '135vh',
+    },
   },
   lcC: {
     display: 'flex',

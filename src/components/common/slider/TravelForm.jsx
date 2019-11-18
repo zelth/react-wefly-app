@@ -8,7 +8,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import InputBase from '@material-ui/core/InputBase';
 import DateFnsUtils from '@date-io/date-fns';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
-import { Icon } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 
 import {
@@ -24,7 +23,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: '#35AFE4',
     margin: theme.spacing(1, 1.5),
   },
-  testing: {
+  bookingContainer: {
     marginBottom: 20,
     '& svg': {
       position: 'absolute',
@@ -70,16 +69,7 @@ const BootstrapInput = withStyles(theme => ({
     transition: theme.transitions.create(['border-color', 'box-shadow']),
     // Use the system font instead of the default Roboto font.
     fontFamily: [
-      '-apple-system',
-      'BlinkMacSystemFont',
-      '"Segoe UI"',
-      'Roboto',
-      '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
+      'Montserrat'
     ].join(','),
     '&:focus': {
       borderRadius: 4,
@@ -115,7 +105,7 @@ const TravelForm = () => {
             Where are you travelling? 
           </Typography>
         </Grid>
-        <Grid item xs={12} md={12} className={classes.testing}>
+        <Grid item xs={12} md={12} className={classes.bookingContainer}>
           <Select
             value={bookingDestination}
             onChange={handleChange}

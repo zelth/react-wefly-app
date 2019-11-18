@@ -5,15 +5,13 @@ import PricingCoverage from './PricingCoverage';
 import BookingFooter from './BookingFooter';
 
 
-const PricingPage = () => {
+const PricingPage = () => (
+  <>
+    <BookingHeader />
+    <PricingCoverage />
+    <BookingFooter />
+  </>
+);
 
-  return (
-    <>
-      <BookingHeader />
-      <PricingCoverage />
-      <BookingFooter />
-    </>
-  );
-};
 
 export default PricingPage;

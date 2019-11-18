@@ -1,11 +1,10 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/styles';
 import LogoPackage from 'assets/img/logo_package.png';
 import SectionBg from 'assets/img/bg_blue.png'; 
 import WiflyImage from 'assets/img/elem_3.png';
-import { Typography } from '@material-ui/core';
+import { Typography, makeStyles } from '@material-ui/core';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     height: 900,
@@ -44,6 +43,9 @@ const useStyles = makeStyles(() => ({
     flexDirection: 'column',
     '& img': {
       width: '75%',
+      [theme.breakpoints.up('md')]: {
+        width: '95%',
+      },
     }
   },
 }));
@@ -61,7 +63,18 @@ const AboutSection = () => {
             Just the essentials. That&apos;s it. 
           </Typography>
           <Typography component="p">
-            Vivamus quam quam, egestas vitae ligula et, condimentum imperdiet quam. Vestibulum eu libero ante. Mauris at placerat lacus. Ut viverra enim a libero pellentesque facilisis. Integer in lorem ut ante porttitor efficitur. Suspendisse elit risus, tempus quis cursus ut, venenatis eget purus. Sed in lorem cursus, consequat magna ac, fringilla mi. Suspendisse potenti. Vestibulum risus metus, cursus et pretium quis, finibus et mi. Nullam vel porttitor ex. Pellentesque vitae velit id leo eleifend commodo in quis ipsum. Sed sit amet fringilla felis. Suspendisse consectetur libero ligula, eget interdum neque ornare ut.
+            Vivamus quam quam, egestas vitae ligula et, 
+            condimentum imperdiet quam. Vestibulum eu libero ante. 
+            Mauris at placerat lacus. 
+            Ut viverra enim a libero pellentesque facilisis. 
+            Integer in lorem ut ante porttitor efficitur. Suspendisse elit risus, 
+            tempus quis cursus ut, venenatis eget purus. 
+            Sed in lorem cursus, consequat magna ac, fringilla mi. 
+            Suspendisse potenti. Vestibulum risus metus, cursus et pretium quis, 
+            finibus et mi. Nullam vel porttitor ex. 
+            Pellentesque vitae velit id leo eleifend commodo in quis ipsum. 
+            Sed sit amet fringilla felis. 
+            Suspendisse consectetur libero ligula, eget interdum neque ornare ut.
           </Typography>
         </div>
       </div>

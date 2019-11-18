@@ -1,6 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/styles';
-import { Typography } from '@material-ui/core';
+import { Typography, makeStyles } from '@material-ui/core';
 import { loadCSS } from 'fg-loadcss';
 import Icon from '@material-ui/core/Icon';
 import { Twitter, Facebook, Instagram, LinkedIn, YouTube, } from '@material-ui/icons';

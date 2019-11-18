@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   root: {
     width: '100%',
     padding: '50px 50px',
@@ -141,7 +141,17 @@ function BookingGuide() {
           </div>
           <div className={classes.answer}>
             <Typography component="p">
-              In hac habitasse platea dictumst. Curabitur at lacus ac velit ornare lobortis. Curabitur a felis in nunc fringilla tristique. Morbi mattis ullamcorper velit. Phasellus gravida semper nisi. Nullam vel sem. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam. Sed hendrerit. Morbi ac felis. Nunc egestas, augue at pellentesque laoreet, felis eros vehicula leo, at malesuada velit leo quis pede. Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi. Nunc nulla. Fusce risus nisl, viverra et, tempor et, pretium in, sapien. Donec venenatis vulputate lorem.
+              In hac habitasse platea dictumst. 
+              Curabitur at lacus ac velit ornare lobortis. 
+              Curabitur a felis in nunc fringilla tristique. 
+              Morbi mattis ullamcorper velit. Phasellus gravida semper nisi. 
+              Nullam vel sem. Pellentesque libero tortor, tincidunt et, 
+              tincidunt eget, semper nec, quam. Sed hendrerit. Morbi ac felis. 
+              Nunc egestas, augue at pellentesque laoreet, felis eros 
+              vehicula leo, at malesuada velit leo quis pede. Donec interdum, 
+              metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas 
+              libero turpis vel mi. Nunc nulla. Fusce risus nisl, 
+              viverra et, tempor et, pretium in, sapien. Donec venenatis vulputate lorem.
             </Typography>  
           </div>
           <div className={classes.question}>
@@ -151,7 +161,17 @@ function BookingGuide() {
           </div>
           <div className={classes.answer}>
             <Typography component="p">
-              In hac habitasse platea dictumst. Curabitur at lacus ac velit ornare lobortis. Curabitur a felis in nunc fringilla tristique. Morbi mattis ullamcorper velit. Phasellus gravida semper nisi. Nullam vel sem. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam. Sed hendrerit. Morbi ac felis. Nunc egestas, augue at pellentesque laoreet, felis eros vehicula leo, at malesuada velit leo quis pede. Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi. Nunc nulla. Fusce risus nisl, viverra et, tempor et, pretium in, sapien. Donec venenatis vulputate lorem.
+              In hac habitasse platea dictumst. 
+              Curabitur at lacus ac velit ornare lobortis. 
+              Curabitur a felis in nunc fringilla tristique. 
+              Morbi mattis ullamcorper velit. Phasellus gravida semper nisi. 
+              Nullam vel sem. Pellentesque libero tortor, tincidunt et, 
+              tincidunt eget, semper nec, quam. Sed hendrerit. Morbi ac felis. 
+              Nunc egestas, augue at pellentesque laoreet, felis eros vehicula leo, 
+              at malesuada velit leo quis pede. Donec interdum, metus et hendrerit aliquet,
+              dolor diam sagittis ligula, eget egestas libero turpis vel mi. Nunc nulla. 
+              Fusce risus nisl, viverra et, tempor et, pretium in, sapien. 
+              Donec venenatis vulputate lorem.
             </Typography>  
           </div>
         </div>

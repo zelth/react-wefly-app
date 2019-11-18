@@ -1,10 +1,9 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/styles';
-import { Typography } from '@material-ui/core';
+import { Typography, makeStyles } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   coveragePricing: {
     padding: '50px 100px',
   },
@@ -311,6 +310,6 @@ const PricingCoverage = () => {
       </div>  
     </div>
   );
-}
+};
 
 export default PricingCoverage;

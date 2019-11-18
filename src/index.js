@@ -1,11 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import 'typeface-roboto';
-
 import AppContainer from './layout/AppContainer';
 import * as serviceWorker from './serviceWorker';
-
 
 window.logout = () => {
   localStorage.removeItem('access_token');
