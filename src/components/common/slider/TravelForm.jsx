@@ -34,9 +34,9 @@ const useStyles = makeStyles(theme => ({
   dateContainer: {
     marginBottom: 20,
     '& button': {
-      padding: 10,
+      padding: 3,
       position: 'absolute',
-      left: 0,
+      left: 6,
     },
     '& input':{
       padding: '10px 10px 10px 40px',

@@ -11,6 +11,9 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
     width: '100%',
     marginTop: '1.1%',
+    [theme.breakpoints.up('md')]: {
+      marginTop: '1.3%',
+    }
   },
   imgContainer: {
     width: '100%',
