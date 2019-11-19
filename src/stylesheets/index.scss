@@ -8,12 +8,17 @@
 @import 'admin/admin';
 
 
+// @font-face {
+//   font-family: 'Montserrat';
+//   src: local('Montserrat'), url(../fonts/Montserrat-Bold.ttf) format('ttf');
+// }
+
 html,
 body,
 #root,
 #root > div {
   // min-height: 100vh;
-  font-family: Roboto, sans-serif;
+  font-family: Montserrat, sans-serif;
 }
 
 .uploadcare--widget {

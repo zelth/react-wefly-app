@@ -1,8 +1,17 @@
 import React from 'react';
 import { Typography, makeStyles } from '@material-ui/core';
 import { loadCSS } from 'fg-loadcss';
-import { Twitter, Facebook, Instagram, LinkedIn, YouTube, } from '@material-ui/icons';
-import Link from '@material-ui/core/Link';
+// import { Twitter, Facebook, Instagram, LinkedIn, YouTube, } from '@material-ui/icons';
+// import FormControl from '@material-ui/core/FormControl';
+// import InputLabel from '@material-ui/core/InputLabel';
+// import Select from '@material-ui/core/Select';
+// import MenuItem from '@material-ui/core/MenuItem';
+import TextField from '@material-ui/core/TextField';
+import MenuItem from '@material-ui/core/MenuItem';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import YouTubeIcon from '@material-ui/icons/YouTube';
 import FooterWave from 'assets/img/footer_wave.png';
 import LogoColored from 'assets/img/logo_footer.png';
 
@@ -11,56 +20,7 @@ const useStyles = makeStyles(() => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
-    
-  },
-  fcC: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  smC: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end',
-    width: '70%',
-  },
-  scC: {
-    display: 'flex',
-    flexDirection: 'column',
-    width: '18%',
-    '& h4': {
-      marginBottom: 30,
-    },
-    '& p': {
-      fontSize: 14,
-      marginBottom: 20,
-      '& last-of-type': {
-        marginBottom: 0,
-      } 
-    } 
-  },
-  lcC: {
-    display: 'flex',
-    flexDirection: 'column',
-    '& img': {
-      marginTop: -25,
-    }
-  },
-  iconContainer: {
-    display: 'flex',
-    height: 195,
-    alignItems: 'flex-end',
-    justifyContent: 'space-around',
-    '& a': {
-      marginRight: '5%',
-      color: '#505050',
-    }
-  },
-  footerLinks: {
     backgroundColor: '#fff',
-    display: 'flex',
-    justifyContent: 'center',
-    paddingTop: 50,
-    paddingBottom: 50,
   },
   waveImg: {
     backgroundImage: `url(${FooterWave})`,
@@ -70,6 +30,62 @@ const useStyles = makeStyles(() => ({
     height: 56,
     width: '100%',
     marginTop: -56,
+  },
+  headerContainer: {
+    display: 'flex',
+    borderBottom: '1px solid #f6f6f6',
+    padding: '0 0 10px 0',
+  },
+  logoContainer: {
+    display: 'flex',
+    width: '30%',
+    '& img': {
+      width: 149,
+      height: 49,
+    }
+  },
+  headerList: {
+    display: 'flex',
+    width: '70%',
+    alignItems: 'flex-end',
+    '& h6': {
+      width: '20%',
+      color: '#8d8d8d',
+    }
+  },
+  mainContainer: {
+    width: '90%',
+    margin: '0 auto',
+    paddingBottom: 50,
+  },
+  contentContainer: {
+    display: 'flex',
+  },
+  leftContainer: {
+    width: '30%'
+  },
+  rightContainer: {
+    width: '70%',
+    display: 'flex',
+  },
+  navigationItems: {
+    width: '20%',
+    display: 'flex',
+    flexDirection: 'column',
+    '& a': {
+      color: '#8d8d8d',
+      marginTop: 30,
+    }
+  },
+  siteIcons: {
+    width: '65%',
+    height: '81%',
+    display: 'flex',
+    alignItems: 'flex-end',
+    justifyContent: 'space-between',
+    '& a': {
+      color: '#858585'
+    }
   }
 }));
 
@@ -83,186 +99,172 @@ const Footer = () => {
       document.querySelector('#font-awesome-css'),
     );
   }, []);
+
+  const languages = [
+    {
+      value: 1,
+      label: 'English',
+    },
+  ];
   
+  const [language, setLanguage] = React.useState(1);
+
+  const handleChange = event => {
+    setLanguage(event.target.value);
+  };
+
   return (
     <div className={classes.root}>
       <div className={classes.waveImg} />
-      <div className={classes.footerLinks}>
-        <div className={classes.fcC}>
-          <div className={classes.lcC}>
+      <div className={classes.mainContainer}>
+        <div className={classes.headerContainer}>
+          <div className={classes.logoContainer}>
             <img src={LogoColored} alt="logo-colored" />
-            <Typography component="p">
-              A place holder for language
-            </Typography>
           </div>
-          <div className={classes.iconContainer}>
-            <Link href="#" className={classes.link}>
-              <Facebook />
-            </Link>
-            <Link href="#" className={classes.link}>
-              <Twitter />
-            </Link>
-            <Link href="#" className={classes.link}>
-              <Instagram />
-            </Link>
-            <Link href="#" className={classes.link}>
-              <LinkedIn />
-            </Link>
-            <Link href="#" className={classes.link}>
-              <YouTube />
-            </Link>
-          </div>
-        </div>
-        <div className={classes.smC}>
-          <div className={classes.scC}>
-            <Typography component="h4">
+          <div className={classes.headerList}>
+            <Typography variant="h6">
               Wifly
             </Typography>
-            <Link href="#" className={classes.link}>
-              <Typography component="p">
-                App
-              </Typography>
-            </Link>
-            <Link href="#" className={classes.link}>
-              <Typography component="p">
-                Features
-              </Typography>
-            </Link>
-            <Link href="#" className={classes.link}>
-              <Typography component="p">
-                Deals
-              </Typography>
-            </Link>
-            <Link href="#" className={classes.link}>
-              <Typography component="p">
-                Privacy Policy
-              </Typography>
-            </Link>
-            <Link href="#" className={classes.link}>
-              <Typography component="p">
-                Terms of Service
-              </Typography>
-            </Link>
-          </div>
-          <div className={classes.scC}>
-            <Typography component="h4">
+            <Typography variant="h6">
               Company
             </Typography>
-            <Link href="#" className={classes.link}>
-              <Typography component="p">
-                About
-              </Typography>
-            </Link>
-            <Link href="#" className={classes.link}>
-              <Typography component="p">
-                Data
-              </Typography>
-            </Link>
-            <Link href="#" className={classes.link}>
-              <Typography component="p">
-                Investors
-              </Typography>
-            </Link>
-            <Link href="#" className={classes.link}>
-              <Typography component="p">
-                Locations
-              </Typography>
-            </Link>
-            <Link href="#" className={classes.link}>
-              <Typography component="p">
-                Departments
-              </Typography>
-            </Link>
-          </div>
-          <div className={classes.scC}>
-            <Typography component="h4">
+            <Typography variant="h6">
               People
             </Typography>
-            <Link href="#" className={classes.link}>
-              <Typography component="p">
-                Mission
-              </Typography>
-            </Link>
-            <Link href="#" className={classes.link}>
-              <Typography component="p">
-                Lifestyle
-              </Typography>
-            </Link>
-            <Link href="#" className={classes.link}>
-              <Typography component="p">
-                Values
-              </Typography>
-            </Link>
-            <Link href="#" className={classes.link}>
-              <Typography component="p">
-                Humans
-              </Typography>
-            </Link>
-            <Link href="#" className={classes.link}>
-              <Typography component="p">
-                Careers
-              </Typography>
-            </Link>
-          </div>
-          <div className={classes.scC}>
-            <Typography component="h4">
+            <Typography variant="h6">
               Support
             </Typography>
-            <Link href="#" className={classes.link}>
-              <Typography component="p">
-                Getting Started
-              </Typography>
-            </Link>
-            <Link href="#" className={classes.link}>
-              <Typography component="p">
-                Flights
-              </Typography>
-            </Link>
-            <Link href="#" className={classes.link}>
-              <Typography component="p">
-                Hotels
-              </Typography>
-            </Link>
-            <Link href="#" className={classes.link}>
-              <Typography component="p">
-                Troubleshooting
-              </Typography>
-            </Link>
-            <Link href="#" className={classes.link}>
-              <Typography component="p">
-                Billing and Payment
-              </Typography>
-            </Link>
-          </div>
-          <div className={classes.scC}>
-            <Typography component="h4">
+            <Typography variant="h6">
               Media
             </Typography>
-            <Link href="#" className={classes.link}>
-              <Typography component="p">
+          </div>    
+        </div>
+        <div className={classes.contentContainer}>
+          <div className={classes.leftContainer}>
+            <div className={classes.languageDropdown}>
+              <TextField
+                id="standard-select-language"
+                select
+                placeholder="English"
+                className={classes.textField}
+                value={language}
+                onChange={handleChange}
+                SelectProps={{
+                  MenuProps: {
+                    className: classes.menu,
+                  },
+                }}
+                margin="normal"
+              >
+                
+                {languages.map(option => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </TextField>
+            </div>
+            <div className={classes.siteIcons}>
+              <a color="textPrimary" href="/pricing">
+                <TwitterIcon />
+              </a>
+              <a color="textPrimary" href="/pricing">
+                <InstagramIcon />
+              </a>
+              <a color="textPrimary" href="/pricing">
+                <LinkedInIcon />
+              </a>
+              <a color="textPrimary" href="/pricing">
+                <YouTubeIcon />
+              </a>
+            </div>
+          </div>
+          <div className={classes.rightContainer}>
+            <div className={classes.navigationItems}>
+              <a color="textPrimary" href="/pricing">
+                App
+              </a>
+              <a color="textPrimary" href="/pricing">
+                Features
+              </a>
+              <a color="textPrimary" href="/pricing">
+                Deals
+              </a>
+              <a color="textPrimary" href="/pricing">
+                Privacy Policy
+              </a>
+              <a color="textPrimary" href="/pricing">
+                Terms of Service
+              </a>
+            </div>
+            <div className={classes.navigationItems}>
+              <a color="textPrimary" href="/pricing">
+                About
+              </a>
+              <a color="textPrimary" href="/pricing">
+                Data
+              </a>
+              <a color="textPrimary" href="/pricing">
+                Investors
+              </a>
+              <a color="textPrimary" href="/pricing">
+                Locations
+              </a>
+              <a color="textPrimary" href="/pricing">
+                Departments
+              </a>
+            </div>
+            <div className={classes.navigationItems}>
+              <a color="textPrimary" href="/pricing">
+                Mission
+              </a>
+              <a color="textPrimary" href="/pricing">
+                Lifestyle
+              </a>
+              <a color="textPrimary" href="/pricing">
+                Values
+              </a>
+              <a color="textPrimary" href="/pricing">
+                Humans
+              </a>
+              <a color="textPrimary" href="/pricing">
+                Careers
+              </a>
+            </div>
+            <div className={classes.navigationItems}>
+              <a color="textPrimary" href="/pricing">
+                Getting Started
+              </a>
+              <a color="textPrimary" href="/pricing">
+                Flights
+              </a>
+              <a color="textPrimary" href="/pricing">
+                Hotels
+              </a>
+              <a color="textPrimary" href="/pricing">
+                Troubleshooting 
+              </a>
+              <a color="textPrimary" href="/pricing">
+                Billing and Payment
+              </a>
+            </div>
+            <div className={classes.navigationItems}>
+              <a color="textPrimary" href="/pricing">
                 News
-              </Typography>
-            </Link>
-            <Link href="#" className={classes.link}>
-              <Typography component="p">
+              </a>
+              <a color="textPrimary" href="/pricing">
                 Press Kit
-              </Typography>
-            </Link>
-            <Link href="#" className={classes.link}>
-              <Typography component="p">
+              </a>
+              <a color="textPrimary" href="/pricing">
                 Research
-              </Typography>
-            </Link>
-            <Link href="#" className={classes.link}>
-              <Typography component="p">
-                Search
-              </Typography>
-            </Link>
-            <Link href="#" className={classes.link}>
-              <Typography component="p">
-                Media Enquiries
-              </Typography>
-            </Link>
+              </a>
+              <a color="textPrimary" href="/pricing">
+                Search 
+              </a>
+              <a color="textPrimary" href="/pricing">
+                Media Queries
+              </a>
+            </div>
           </div>
         </div>
       </div>

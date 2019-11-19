@@ -34,9 +34,9 @@ const useStyles = makeStyles(theme => ({
   dateContainer: {
     marginBottom: 20,
     '& button': {
-      padding: 10,
+      padding: 3,
       position: 'absolute',
-      left: 0,
+      left: 6,
     },
     '& input':{
       padding: '10px 10px 10px 40px',
@@ -67,10 +67,7 @@ const BootstrapInput = withStyles(theme => ({
     fontSize: 16,
     padding: '13px 31px 13px 31px',
     transition: theme.transitions.create(['border-color', 'box-shadow']),
-    // Use the system font instead of the default Roboto font.
-    fontFamily: [
-      'Montserrat'
-    ].join(','),
+    
     '&:focus': {
       borderRadius: 4,
       borderColor: '#80bdff',
