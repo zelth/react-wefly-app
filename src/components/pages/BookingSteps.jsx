@@ -12,6 +12,7 @@ import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
 import Input from '@material-ui/core/Input';
 import moment from 'moment';
+import { PayPalButton } from "react-paypal-button-v2";
 
 import {
   MuiPickersUtilsProvider,
@@ -558,7 +559,7 @@ export default function BookingSteps({ bookingParams }) {
   const [pickupDate, setPickupDate] = useState(new Date());
   const [returnDate, setReturnDate] = useState(new Date());
   const [routerInsurance, setRouterInsurance] = useState(false);
-
+  // const [successCheckOut, set]
   // constant
   const insuranceFee = 500;
   const routerFee = 1750;
@@ -753,6 +754,7 @@ export default function BookingSteps({ bookingParams }) {
               {currencyFormatter.format(getVatAmount(), { symbol: '₱' })}
             </span>
           </div>
+          
         </div>
         <span className={classes.mt40}>
           This is a sample text and will just hold anything that<br />
@@ -761,6 +763,27 @@ export default function BookingSteps({ bookingParams }) {
         <Typography className={classes.summaryTotal}>
           Total: {currencyFormatter.format(getTotal(), { symbol: '₱' })}
         </Typography>
+        <div>
+          {activeStep}
+          <PayPalButton
+            amount="0.01"
+            // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
+            onSuccess={(details, data) => {
+              alert("Transaction completed by " + details.payer.name.given_name);
+              console.log('data', data);
+              // OPTIONAL: Call your server to save the transaction
+              // return fetch("/paypal-transaction-complete", {
+              //   method: "post",
+              //   body: JSON.stringify({
+              //     orderID: data.orderID
+              //   })
+              // });
+            }}
+            options={{
+              clientId: ''
+            }}
+          />
+        </div>
       </div>    
     </div>
     
