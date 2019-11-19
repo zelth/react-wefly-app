@@ -1,8 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import WebFont from 'webfontloader';
 
 import AppContainer from './layout/AppContainer';
 import * as serviceWorker from './serviceWorker';
+
+WebFont.load({
+  google: {
+    families: ['Montserrat']
+  }
+});
 
 window.logout = () => {
   localStorage.removeItem('access_token');

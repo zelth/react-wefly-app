@@ -8,7 +8,6 @@ import { loadCSS } from 'fg-loadcss';
 // import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
-import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
@@ -103,24 +102,12 @@ const Footer = () => {
 
   const languages = [
     {
-      value: '1',
+      value: 1,
       label: 'English',
-    },
-    {
-      value: '2',
-      label: 'Spanish',
-    },
-    {
-      value: '3',
-      label: 'Japanese',
-    },
-    {
-      value: '4',
-      label: 'Chinese',
     },
   ];
   
-  const [language, setLanguage] = React.useState('EUR');
+  const [language, setLanguage] = React.useState(1);
 
   const handleChange = event => {
     setLanguage(event.target.value);
@@ -156,9 +143,6 @@ const Footer = () => {
           <div className={classes.leftContainer}>
             <div className={classes.languageDropdown}>
               <TextField
-                IconComponent={() => (
-                  <FacebookIcon />
-                )}  
                 id="standard-select-language"
                 select
                 placeholder="English"
@@ -172,9 +156,7 @@ const Footer = () => {
                 }}
                 margin="normal"
               >
-                <a color="textPrimary" href="/pricing">
-                  <FacebookIcon />
-                </a>
+                
                 {languages.map(option => (
                   <MenuItem key={option.value} value={option.value}>
                     {option.label}
