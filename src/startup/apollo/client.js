@@ -22,11 +22,11 @@ const authLink = setContext((_, { headers }) => ({
 }));
 
 const httpLink = new HttpLink({
-  uri: 'http://localhost:8000/api',
+  uri: 'http://ec2-3-1-81-97.ap-southeast-1.compute.amazonaws.com/api',
 });
 
 const wsLink = new WebSocketLink({
-  uri: 'wss://localhost:8000/subscriptions',
+  uri: 'wss://ec2-3-1-81-97.ap-southeast-1.compute.amazonaws.com/subscriptions',
   options: {
     reconnect: true
   }
